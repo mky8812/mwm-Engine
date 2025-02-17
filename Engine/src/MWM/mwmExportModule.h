@@ -10,18 +10,18 @@
 
 #if defined(_WIN32) || defined(_WIN64)
 //    #if defined(_DEBUG)
-//        #define MWM_EXPORT
+//        #define MWM_API
 //    #elif defined(MWM_COMPILE_EXPORT)
     #if defined(MWM_COMPILE_EXPORT)
-        #define MWM_EXPORT __declspec(dllexport)
+        #define MWM_API __declspec(dllexport)
     #else
-        #define MWM_EXPORT __declspec(dllimport)
+        #define MWM_API __declspec(dllimport)
 #endif
 #elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
 #if defined(MWM_COMPILE_EXPORT)
-        #define MWM_EXPORT __attribute__((visibility("default")))
+        #define MWM_API __attribute__((visibility("default")))
     #else
-        #define MWM_EXPORT
+        #define MWM_API
 #endif
 #endif
 

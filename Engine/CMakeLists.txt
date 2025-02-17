@@ -3,8 +3,11 @@ file(GLOB_RECURSE ENGINE_SRCS CONFIGURE_DEPENDS src/*.cpp src/*.h)
 set(MWM_Compile_Shared ON CACHE BOOL "Enable GPS CUDA Module. " FORCE )
 add_library(${MODULE_NAME} SHARED ${ENGINE_SRCS})
 
+target_include_directories(${MODULE_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/MWM
+)
 target_include_directories(${MODULE_NAME} PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 if (WIN32)
