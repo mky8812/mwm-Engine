@@ -4,7 +4,7 @@
  */
 
 #pragma once
-#include <MWM/mwmExportModule.h>
+#include <MWM/Core.h>
 namespace MWM{
     class MWM_API Application
     {

@@ -1,4 +1,6 @@
 set(MODULE_NAME mwm_Engine)
+
+add_subdirectory(ThirdParty)
 file(GLOB_RECURSE ENGINE_SRCS CONFIGURE_DEPENDS src/*.cpp src/*.h)
 set(MWM_Compile_Shared ON CACHE BOOL "Enable GPS CUDA Module. " FORCE )
 add_library(${MODULE_NAME} SHARED ${ENGINE_SRCS})
@@ -8,6 +10,9 @@ target_include_directories(${MODULE_NAME} PRIVATE
 )
 target_include_directories(${MODULE_NAME} PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/spdlog/include
+
 )
 
 if (WIN32)
